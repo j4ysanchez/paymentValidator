@@ -1,0 +1,65 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [23/Feb/2024 20:20:36] "[35m[1mGET /validate_payment HTTP/1.1[0m" 500 -
+ERROR:werkzeug:Error on request:
+Traceback (most recent call last):
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\app.py", line 59, in validate_payment
+    app.logger.info('INFO')
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1539, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1761, in callHandlers
+    if record.levelno >= hdlr.level:
+                         ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'level'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\werkzeug\serving.py", line 362, in run_wsgi
+    execute(self.server.app)
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\werkzeug\serving.py", line 323, in execute
+    application_iter = app(environ, start_response)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 1488, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 1466, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 807, in handle_exception
+    self.log_exception(exc_info)
+  File "C:\dev\paymentValidator\venv\Lib\site-packages\flask\app.py", line 828, in log_exception
+    self.logger.error(
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1568, in error
+    self._log(ERROR, msg, args, **kwargs)
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1684, in _log
+    self.handle(record)
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1700, in handle
+    self.callHandlers(record)
+  File "C:\Users\j4ysa\AppData\Local\Programs\Python\Python312\Lib\logging\__init__.py", line 1761, in callHandlers
+    if record.levelno >= hdlr.level:
+                         ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'level'
