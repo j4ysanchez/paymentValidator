@@ -19,7 +19,7 @@ def create_consumer():
     conf = {
         'bootstrap.servers': 'localhost:9092',
         'group.id': 'validate_payment',
-        'auto.offset.reset': 'earliest',
+        'auto.offset.reset': 'latest',
         'enable.auto.commit': False,
         'error_cb': error_cb,
         # 'log_cb': log_cb
@@ -87,6 +87,7 @@ def publish_event(orderid):
         'validation_id': str(uuid.uuid4()),
         'order_id': str(orderid),
         'event': 'payment_validated',
+        'payment_status': 'valid',
         'details': {
 
         }
@@ -96,10 +97,7 @@ def publish_event(orderid):
     event_data_json = json.dumps(event_data)
 
     # Publish the event to the 'payment-events' topic
-    # producer.produce('payment-events', 
-    #                  event_data_json.encode('utf-8'), callback=delivery_report)
     producer.produce('payment-events', event_data_json.encode('utf-8'))
-
 
     producer.flush()
 
